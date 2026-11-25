@@ -1,10 +1,18 @@
+# Diagrama de Clases — EcoPatrulla-Marino
+
+**Proyecto:** EcoPatrulla-Marino  
+**Equipo:** Matheo Jaramillo Cardenas - Victor Manuel Magaña Perez  
+**Versión:** 1.0  
+**Fecha:** Noviembre 2026  
+
+```mermaid
 classDiagram
     class GameManager {
-        -puntaje
-        -puntosPorSancion
-        -saludEcosistema
-        -tiempoRestante
-        -partidaActiva
+        -int puntaje
+        -int puntosPorSancion
+        -float saludEcosistema
+        -float tiempoRestante
+        -bool partidaActiva
         +iniciarNivel()
         +actualizar()
         +procesarToque()
@@ -16,41 +24,41 @@ classDiagram
     }
 
     class SpawnerEmbarcaciones {
-        -intervaloAparicion
-        -temporizadorSpawn
+        -float intervaloAparicion
+        -float temporizadorSpawn
         +actualizar()
         +generarBarco()
     }
 
     class Embarcacion {
-        -id
-        -esIlegal
-        -posX
-        -posY
-        -velocidad
+        -string id
+        -bool esIlegal
+        -float posX
+        -float posY
+        -float velocidad
         +desplazar()
         +colisionaConPunto()
         +eliminar()
     }
 
     class Ruta {
-        -totalPuntos
+        -int totalPuntos
         +obtenerSiguientePunto()
     }
 
     class AreaMarinaProtegida {
-        -id
-        -cantidadPuntosTrazo
-        -duracionRestante
-        -activa
+        -string id
+        -int cantidadPuntosTrazo
+        -float duracionRestante
+        -bool activa
         +actualizar()
         +estaActiva()
         +expirar()
     }
 
     class ControladorTactil {
-        -presionado
-        -cantidadPuntosArrastre
+        -bool presionado
+        -int cantidadPuntosArrastre
         +onTouchDown()
         +onTouchMove()
         +onTouchUp()
@@ -71,3 +79,4 @@ classDiagram
     ControladorTactil "1" --> "1" GameManager : notifica gestos
     SpawnerEmbarcaciones "1" --> "1..*" Ruta : asigna
     Embarcacion "1" --> "1" Ruta : recorre
+```
