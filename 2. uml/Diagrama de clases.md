@@ -1,67 +1,67 @@
 classDiagram
     class GameManager {
         -int puntaje
+        -int puntosPorSancion
         -float saludEcosistema
         -float tiempoRestante
         -bool partidaActiva
-        +iniciarNivel(nivelId: int)
-        +actualizar(deltaTime: float)
-        +procesarToque(posicion: Vector2)
-        +crearAMP(trazo: ListVector2)
-        +sumarPuntos(puntos: int)
-        +actualizarSaludEcosistema(delta: float)
+        +iniciarNivel(int nivelId) void
+        +actualizar(float deltaTime) void
+        +procesarToque(float x, float y) void
+        +crearAMP() void
+        +sumarPuntos(int puntos) void
+        +actualizarSaludEcosistema(float delta) void
         +evaluarVictoriaMRS() bool
-        +finalizarNivel(victoria: bool)
+        +finalizarNivel(bool victoria) void
     }
 
     class SpawnerEmbarcaciones {
         -float intervaloAparicion
         -float temporizadorSpawn
-        -ListRuta rutas
-        +actualizar(deltaTime: float)
-        +generarBarco(esIlegal: bool) Embarcacion
+        +actualizar(float deltaTime) void
+        +generarBarco(bool esIlegal) Embarcacion
     }
 
     class Embarcacion {
         -string id
         -bool esIlegal
-        -Vector2 posicion
+        -float posX
+        -float posY
         -float velocidad
-        -Ruta ruta
-        +desplazar(deltaTime: float)
-        +colisionaConPunto(punto: Vector2) bool
-        +eliminar()
+        +desplazar(float deltaTime) void
+        +colisionaConPunto(float x, float y) bool
+        +eliminar() void
     }
 
     class Ruta {
-        -ListVector2 puntos
-        +obtenerSiguientePunto(indice: int) Vector2
+        -int totalPuntos
+        +obtenerSiguientePunto(int indice) void
     }
 
     class AreaMarinaProtegida {
         -string id
-        -ListVector2 zona
+        -int cantidadPuntosTrazo
         -float duracionRestante
         -bool activa
-        +actualizar(deltaTime: float)
+        +actualizar(float deltaTime) void
         +estaActiva() bool
-        +expirar()
+        +expirar() void
     }
 
     class ControladorTactil {
         -bool presionado
-        -ListVector2 puntosArrastre
-        +onTouchDown(pos: Vector2)
-        +onTouchMove(pos: Vector2)
-        +onTouchUp(pos: Vector2)
+        -int cantidadPuntosArrastre
+        +onTouchDown(float x, float y) void
+        +onTouchMove(float x, float y) void
+        +onTouchUp(float x, float y) void
     }
 
     class HUDController {
-        +setPuntaje(valor: int)
-        +setBarraMRS(porcentaje: float)
-        +setTiempoRestante(segundos: float)
-        +mostrarPantallaVictoria()
-        +adaptarUI(aspectRatio: float)
+        +setPuntaje(int valor) void
+        +setBarraMRS(float porcentaje) void
+        +setTiempoRestante(float segundos) void
+        +mostrarPantallaVictoria() void
+        +adaptarUI(float aspectRatio) void
     }
 
     GameManager "1" --> "1" SpawnerEmbarcaciones : coordina
