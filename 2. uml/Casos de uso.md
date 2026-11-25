@@ -3,7 +3,7 @@
 **Proyecto:** EcoPatrulla-Marino 
 **Equipo:** Matheo Jaramillo Cardenas - Victor Manuel Magaña Perez  
 **Versión:** 1.0  
-**Fecha:** Noviembre 2026  
+**Fecha:**  24 Noviembre 2026  
 
 ---
 
