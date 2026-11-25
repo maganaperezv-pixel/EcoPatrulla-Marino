@@ -1,67 +1,67 @@
 classDiagram
     class GameManager {
-        -int puntaje
-        -int puntosPorSancion
-        -float saludEcosistema
-        -float tiempoRestante
-        -bool partidaActiva
-        +iniciarNivel(int nivelId) void
-        +actualizar(float deltaTime) void
-        +procesarToque(float x, float y) void
-        +crearAMP() void
-        +sumarPuntos(int puntos) void
-        +actualizarSaludEcosistema(float delta) void
-        +evaluarVictoriaMRS() bool
-        +finalizarNivel(bool victoria) void
+        -puntaje
+        -puntosPorSancion
+        -saludEcosistema
+        -tiempoRestante
+        -partidaActiva
+        +iniciarNivel()
+        +actualizar()
+        +procesarToque()
+        +crearAMP()
+        +sumarPuntos()
+        +actualizarSaludEcosistema()
+        +evaluarVictoriaMRS()
+        +finalizarNivel()
     }
 
     class SpawnerEmbarcaciones {
-        -float intervaloAparicion
-        -float temporizadorSpawn
-        +actualizar(float deltaTime) void
-        +generarBarco(bool esIlegal) Embarcacion
+        -intervaloAparicion
+        -temporizadorSpawn
+        +actualizar()
+        +generarBarco()
     }
 
     class Embarcacion {
-        -string id
-        -bool esIlegal
-        -float posX
-        -float posY
-        -float velocidad
-        +desplazar(float deltaTime) void
-        +colisionaConPunto(float x, float y) bool
-        +eliminar() void
+        -id
+        -esIlegal
+        -posX
+        -posY
+        -velocidad
+        +desplazar()
+        +colisionaConPunto()
+        +eliminar()
     }
 
     class Ruta {
-        -int totalPuntos
-        +obtenerSiguientePunto(int indice) void
+        -totalPuntos
+        +obtenerSiguientePunto()
     }
 
     class AreaMarinaProtegida {
-        -string id
-        -int cantidadPuntosTrazo
-        -float duracionRestante
-        -bool activa
-        +actualizar(float deltaTime) void
-        +estaActiva() bool
-        +expirar() void
+        -id
+        -cantidadPuntosTrazo
+        -duracionRestante
+        -activa
+        +actualizar()
+        +estaActiva()
+        +expirar()
     }
 
     class ControladorTactil {
-        -bool presionado
-        -int cantidadPuntosArrastre
-        +onTouchDown(float x, float y) void
-        +onTouchMove(float x, float y) void
-        +onTouchUp(float x, float y) void
+        -presionado
+        -cantidadPuntosArrastre
+        +onTouchDown()
+        +onTouchMove()
+        +onTouchUp()
     }
 
     class HUDController {
-        +setPuntaje(int valor) void
-        +setBarraMRS(float porcentaje) void
-        +setTiempoRestante(float segundos) void
-        +mostrarPantallaVictoria() void
-        +adaptarUI(float aspectRatio) void
+        +setPuntaje()
+        +setBarraMRS()
+        +setTiempoRestante()
+        +mostrarPantallaVictoria()
+        +adaptarUI()
     }
 
     GameManager "1" --> "1" SpawnerEmbarcaciones : coordina
