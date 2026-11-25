@@ -1,19 +1,12 @@
----
-
 ### Archivo 2: `clases.md`
 
 ```markdown
 # Diagrama de Clases — EcoPatrulla-Marino
 
-**Proyecto:** Tap Tap Marisco  
+**Proyecto:** EcoPatrulla-Marino  
 **Equipo:** Matheo Jaramillo Cardenas - Victor Manuel Magaña Perez  
 **Versión:** 1.0  
 **Fecha:** Noviembre 2026  
-
-## Descripción
-Modelo estructural de la versión jugable v1.0 para Android 2D, abarcando la gestión del nivel (`GameManager`), la aparición y movimiento de embarcaciones (`SpawnerEmbarcaciones`, `Embarcacion`, `Ruta`), las zonas de protección temporal (`AreaMarinaProtegida`), la captura táctil (`ControladorTactil`) y la interfaz adaptable (`HUDController`).
-
-## Diagrama
 
 ```mermaid
 classDiagram
@@ -25,7 +18,7 @@ classDiagram
         +iniciarNivel(nivelId: int)
         +actualizar(deltaTime: float)
         +procesarToque(posicion: Vector2)
-        +crearAMP(trazo: List~Vector2~)
+        +crearAMP(trazo: ListVector2)
         +sumarPuntos(puntos: int)
         +actualizarSaludEcosistema(delta: float)
         +evaluarVictoriaMRS() bool
@@ -35,7 +28,7 @@ classDiagram
     class SpawnerEmbarcaciones {
         -float intervaloAparicion
         -float temporizadorSpawn
-        -List~Ruta~ rutas
+        -ListRuta rutas
         +actualizar(deltaTime: float)
         +generarBarco(esIlegal: bool) Embarcacion
     }
@@ -52,13 +45,13 @@ classDiagram
     }
 
     class Ruta {
-        -List~Vector2~ puntos
+        -ListVector2 puntos
         +obtenerSiguientePunto(indice: int) Vector2
     }
 
     class AreaMarinaProtegida {
         -string id
-        -List~Vector2~ zona
+        -ListVector2 zona
         -float duracionRestante
         -bool activa
         +actualizar(deltaTime: float)
@@ -68,7 +61,7 @@ classDiagram
 
     class ControladorTactil {
         -bool presionado
-        -List~Vector2~ puntosArrastre
+        -ListVector2 puntosArrastre
         +onTouchDown(pos: Vector2)
         +onTouchMove(pos: Vector2)
         +onTouchUp(pos: Vector2)
