@@ -1,14 +1,3 @@
-### Archivo 2: `clases.md`
-
-```markdown
-# Diagrama de Clases — EcoPatrulla-Marino
-
-**Proyecto:** EcoPatrulla-Marino  
-**Equipo:** Matheo Jaramillo Cardenas - Victor Manuel Magaña Perez  
-**Versión:** 1.0  
-**Fecha:** Noviembre 2026  
-
-```mermaid
 classDiagram
     class GameManager {
         -int puntaje
