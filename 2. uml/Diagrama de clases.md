@@ -1,30 +1,9 @@
-## Diagrama
-
-```mermaid
-flowchart LR
-    subgraph Sistema["Tap Tap Marisco (Android 2D)"]
-        UC1(["CU-01: Sancionar y eliminar barco ilegal (RF-01)"])
-        UC2(["CU-02: Trazar Área Marina Protegida - AMP (RF-02)"])
-        UC3(["CU-03: Actualizar ecosistema y evaluar victoria MRS (RF-03, RF-05)"])
-        UC4(["CU-04: Generar y desplazar embarcaciones (RF-04)"])
-    end
-
-    Jugador(["Jugador"])
-    Motor(["Motor / Temporizador de nivel"])
-
-    Jugador --> UC1
-    Jugador --> UC2
-    UC1 -.->|"<<include>>"| UC3
-    UC2 -.->|"<<include>>"| UC3
-    Motor --> UC3
-    Motor --> UC4
-
 ---
 
 ### Archivo 2: `clases.md`
 
 ```markdown
-# Diagrama de Clases — Tap Tap Marisco
+# Diagrama de Clases — EcoPatrulla-Marino
 
 **Proyecto:** Tap Tap Marisco  
 **Equipo:** Matheo Jaramillo Cardenas - Victor Manuel Magaña Perez  
